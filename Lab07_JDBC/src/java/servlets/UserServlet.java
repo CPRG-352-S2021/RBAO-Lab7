@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- *
+ * https://github.com/CPRG-352-S2021/RBAO-Lab7.git
  * @author Ridge 840288 and Andre 834557
  */
 public class UserServlet extends HttpServlet {
