@@ -5,10 +5,38 @@
  */
 package models;
 
+import java.io.Serializable;
+
 /**
  *
  * @author 840288
  */
-public class Role {
+public class Role implements Serializable{
+    private int roleId;
+    private String roleName;
+    
+    public Role() {
+    }   
+    
+    public Role(int roleId, String roleName) {
+        roleId = this.roleId;
+        roleName = this.roleName;
+    }
+
+    public int getRoleId() {
+        return roleId;
+    }
+
+    public void setRoleId(int roleId) {
+        this.roleId = roleId;
+    }
+
+    public String getRoleName() {
+        return roleName;
+    }
+
+    public void setRoleName(String roleName) {
+        this.roleName = roleName;
+    }
     
 }
