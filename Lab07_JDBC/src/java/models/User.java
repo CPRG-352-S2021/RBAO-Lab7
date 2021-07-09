@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package models;
 
 import java.io.Serializable;
@@ -17,16 +12,18 @@ public class User implements Serializable {
     private String firstname;
     private String lastname;
     private String password;
+    private int role;
     
     public User(){
     }
     
-    public User(String email, boolean active, String firstname, String lastname, String password) {
+    public User(String email, boolean active, String firstname, String lastname, String password,int role) {
         email = this.email;
         active = this.active;
         firstname = this.firstname;
         lastname = this.lastname;
         password = this.password;
+        role = this.role;
     }
 
     public String getEmail() {
@@ -68,4 +65,13 @@ public class User implements Serializable {
     public void setPassword(String password) {
         this.password = password;
     }  
+
+    public int getRole() {
+        return role;
+    }
+
+    public void setRole(int role) {
+        this.role = role;
+    }
+    
 }
