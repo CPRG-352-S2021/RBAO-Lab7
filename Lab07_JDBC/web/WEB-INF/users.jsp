@@ -19,11 +19,11 @@
                 <div>
                     <input type="email" name="emailADD" value="" placeholder = "Email">
                     <br>
-                    <input type="text" name="firstName" value="" placeholder="First Name">
+                    <input type="text" name="firstNameADD" value="" placeholder="First Name">
                     <br>
-                    <input type="text" name="lastName" value="" placeholder = "Last Name">
+                    <input type="text" name="lastNameADD" value="" placeholder = "Last Name">
                     <br>
-                    <input type="password" name="password" value="" placeholder = "Password">
+                    <input type="password" name="passwordADD" value="" placeholder = "Password">
                     <br>
                     <select style="height:22px;width:175px;margin-top:5px">
                         <option value = "1">system admin</option>
@@ -70,11 +70,11 @@
         <h2>Edit User</h2>
         <form method="POST" action="users">
             <div>
-                <input type="email" name="editEmail" value="" placeholder = "Email">
+                <input type="email" name="emailEdit" value="" placeholder = "Email">
                 <br>
-                <input type="text" name="firstName" value="" placeholder="First Name">
+                <input type="text" name="firstNameEdit" value="" placeholder="First Name">
                 <br>
-                <input type="text" name="lastName" value="" placeholder = "Last Name">
+                <input type="text" name="lastNameEdit" value="" placeholder = "Last Name">
                 <br>
                 <select style="height:21px;width:175px;margin-top:5px" >
                     <option value = "1">system admin</option>

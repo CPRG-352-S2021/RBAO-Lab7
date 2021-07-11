@@ -33,13 +33,28 @@ public class UserServlet extends HttpServlet {
         }
         getServletContext().getRequestDispatcher("/WEB-INF/users.jsp").forward(request, response);
     }
-    
+
     @Override
-        protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {       
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+
+        HttpSession session = request.getSession();
+        UserService us = new UserService();
+
+        String email = (String) request.getParameter("emailEdit");
+        String lastName = (String) request.getParameter("lastName");
+        String action = (String) request.getParameter("action");
+
+        String actionTwo = "";
+        String emailEdit = "";
+        String firstNameEdit = "";
+        String lastNameEdit = "";
+        String passwordEdit = "";
+        actionTwo = (String) request.getParameter("actionTwo");
+        String prevEmail = "";
+        String prevLastName = "";
+
+        User userEdit = new User();
+
     }
 }
-
-
-
-
