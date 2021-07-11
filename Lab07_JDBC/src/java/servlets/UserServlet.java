@@ -88,6 +88,114 @@ public class UserServlet extends HttpServlet {
                 //request.setAttribute("message", "error");
             }
 
+            //***************************
+            try {
+                uEdit = us.get(email, fName, lName);
+            } catch (Exception ex) {
+                Logger.getLogger(UserServlet.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+            /*
+             session.setAttribute("prevEmail", email);
+            prevEmail = (String) session.getAttribute("prevEmail");
+            session.setAttribute("prevLastName", lastName);
+            prevLastName = (String) session.getAttribute("prevLastName");
+             */
+            String emailEdit = uEdit.getEmail();
+            request.setAttribute("emailEdit", emailEdit);
+
+            String fNameEdit = uEdit.getFirstname();
+            request.setAttribute("firstNameEdit", fNameEdit);
+
+            String lNameEdit = uEdit.getLastname();
+            request.setAttribute("lastNameEdit", lNameEdit);
+
+            String pswEdit = uEdit.getPassword();
+            request.setAttribute("passwordEdit", pswEdit);
+
+            getServletContext().getRequestDispatcher("/WEB-INF/users.jsp").forward(request, response);
+
+            return;
+
+            //***************************
         }
+
+        if (action != null && action.equals("save")) {
+
+            /*request.setAttribute("addView", true);                   
+            User userOne = null;
+            Integer roleAdd = 0;
+            String emailAdd = (String) request.getParameter("emailAdd");
+            request.setAttribute("emailAdd", emailAdd);
+             */
+            String fNameADD = (String) request.getParameter("fNameADD");
+            request.setAttribute("fNameATTAdd", fNameADD);
+
+            String lNameADD = (String) request.getParameter("lNameADD");
+            request.setAttribute("lNameATTAdd", lNameADD);
+
+            String passwordADD = (String) request.getParameter("passwordADD");
+            request.setAttribute("passwordATTAdd", passwordADD);
+
+            Integer roleADD = Integer.parseInt((String) request.getParameter("roleADD"));
+
+            String emailADD = (String) request.getParameter("emailADD");
+            request.setAttribute("emailATTAdd", emailADD);
+
+            if (emailADD == null || emailADD.equals("") || fNameADD == null || fNameADD.equals("")
+                    || lNameADD == null || lNameADD.equals("") || passwordADD == null || passwordADD.equals("")
+                    || (roleADD == 0)) {
+                //request.setAttribute("someNull", true);
+
+                try {
+
+                    List<User> users = us.getAll();
+                    request.setAttribute("users", users);
+                } catch (Exception ex) {
+                    Logger.getLogger(UserServlet.class.getName()).log(Level.SEVERE, null, ex);
+                    request.setAttribute("message", "error");
+                }
+
+                getServletContext().getRequestDispatcher("/WEB-INF/users.jsp").forward(request, response);
+                return;
+            }
+            User uADD = new User();
+            try {
+
+                uADD = new User(emailADD, Boolean.parseBoolean(request.getParameter("activeADD")), fNameADD, lNameADD, passwordADD, roleADD);
+                us.insert(uADD);
+            } catch (Exception ex) {
+                Logger.getLogger(UserServlet.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            response.sendRedirect("user");
+        }
+        /*
+         String actionADD = (String) request.getParameter("actionADD");
+        
+         if(actionADD != null && actionADD.equals("save")){
+                
+                uEdit = new User(request.getParameter("emailEdit"), Boolean.parseBoolean(request.getParameter("statusEdit")), 
+                            request.getParameter("firstNameEdit"), request.getParameter("lastNameEdit"), 
+                            request.getParameter("passwordEdit"), Integer.parseInt((request.getParameter("roleEdit"))));
+                
+                try {
+
+                    us.update(userEdit, (String) session.getAttribute("prevEmail"), (String) session.getAttribute("prevLastName"));
+                    
+                } catch (Exception ex) {
+                    Logger.getLogger(UserServlet.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                response.sendRedirect("user");
+            }
+                
+            else if(actionTwo != null && actionTwo.equals("save")){
+                    
+                    request.setAttribute("editView", false);
+                    request.setAttribute("addView", true);
+                    response.sendRedirect("user");
+            }        
+        
+
+         */
     }
 }

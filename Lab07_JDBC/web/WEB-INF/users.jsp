@@ -17,13 +17,13 @@
             <h2>Add User</h2>
             <form method="POST" action="users">
                 <div>
-                    <input type="email" name="emailADD" value="" placeholder = "Email">
+                    <input type="email" name="emailADD" value="${emailATTAdd}" placeholder = "Email">
                     <br>
-                    <input type="text" name="fNameADD" value="" placeholder="First Name">
+                    <input type="text" name="fNameADD" value="${fNameATTAdd}" placeholder="First Name">
                     <br>
-                    <input type="text" name="lNameADD" value="" placeholder = "Last Name">
+                    <input type="text" name="lNameADD" value="${lNameATTAdd}" placeholder = "Last Name">
                     <br>
-                    <input type="password" name="passwordADD" value="" placeholder = "Password">
+                    <input type="password" name="passwordADD" value="${passwordATTAdd}" placeholder = "Password">
                     <br>
                     <select style="height:22px;width:175px;margin-top:5px" name="roleADD">
                         <option value = "1">system admin</option>
@@ -32,11 +32,11 @@
                     </select>
                     <br>
                     <select style="height:22px;width:175px;margin-top:5px" name="activeADD">
-                        <option value = "True">Active</option>
-                        <option value = "False">Not Active</option>
+                        <option value = "true">Active</option>
+                        <option value = "false">Not Active</option>
                     </select>
                     <br>
-                    <input type="hidden" name="action" value="save">
+                    <input type="hidden" name="actionADD" value="save">
                     <input  style="height:21px;width:176px;margin-top:5px" type="submit" value="Save">
                 </div>
             </form>
@@ -70,11 +70,11 @@
         <h2>Edit User</h2>
         <form method="POST" action="users">
             <div>
-                <input type="email" name="emailEdit" value="" placeholder = "Email">
+                <input type="email" name="emailEdit" value="${emailATTEdit}" placeholder = "Email">
                 <br>
-                <input type="text" name="fNameEdit" value="" placeholder="First Name">
+                <input type="text" name="fNameEdit" value="${fNameATTEdit}" placeholder="First Name">
                 <br>
-                <input type="text" name="lNameEdit" value="" placeholder = "Last Name">
+                <input type="text" name="lNameEdit" value="${lNameATTEdit}" placeholder = "Last Name">
                 <br>
                 <select style="height:21px;width:175px;margin-top:5px" name="roleEdit">
                     <option value = "1">system admin</option>
@@ -83,11 +83,11 @@
                 </select>
                 <br>
                 <select style="height:22px;width:175px;margin-top:5px" name="activeEdit" >
-                    <option value = "True">Active</option>
-                    <option value = "False">Not Active</option>
+                    <option value = "true">Active</option>
+                    <option value = "false">Not Active</option>
                 </select>
                 <br>
-                <input type="hidden" name="action" value="edit">
+                <input type="hidden" name="actionEdit" value="edit">
                 <input style="height:21px;width:176px;margin-top:5px" type="submit" value="Edit">
             </div>
         </form>
