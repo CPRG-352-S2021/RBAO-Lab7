@@ -19,19 +19,19 @@
                 <div>
                     <input type="email" name="emailADD" value="" placeholder = "Email">
                     <br>
-                    <input type="text" name="firstNameADD" value="" placeholder="First Name">
+                    <input type="text" name="fNameADD" value="" placeholder="First Name">
                     <br>
-                    <input type="text" name="lastNameADD" value="" placeholder = "Last Name">
+                    <input type="text" name="lNameADD" value="" placeholder = "Last Name">
                     <br>
                     <input type="password" name="passwordADD" value="" placeholder = "Password">
                     <br>
-                    <select style="height:22px;width:175px;margin-top:5px">
+                    <select style="height:22px;width:175px;margin-top:5px" name="roleADD">
                         <option value = "1">system admin</option>
                         <option value = "2">regular user</option>
                         <option value = "3">company admin</option> 
                     </select>
                     <br>
-                    <select style="height:22px;width:175px;margin-top:5px" >
+                    <select style="height:22px;width:175px;margin-top:5px" name="activeADD">
                         <option value = "True">Active</option>
                         <option value = "False">Not Active</option>
                     </select>
@@ -72,17 +72,17 @@
             <div>
                 <input type="email" name="emailEdit" value="" placeholder = "Email">
                 <br>
-                <input type="text" name="firstNameEdit" value="" placeholder="First Name">
+                <input type="text" name="fNameEdit" value="" placeholder="First Name">
                 <br>
-                <input type="text" name="lastNameEdit" value="" placeholder = "Last Name">
+                <input type="text" name="lNameEdit" value="" placeholder = "Last Name">
                 <br>
-                <select style="height:21px;width:175px;margin-top:5px" >
+                <select style="height:21px;width:175px;margin-top:5px" name="roleEdit">
                     <option value = "1">system admin</option>
                     <option value = "2">regular user</option>
                     <option value = "3">company admin</option> 
                 </select>
                 <br>
-                <select style="height:22px;width:175px;margin-top:5px" >
+                <select style="height:22px;width:175px;margin-top:5px" name="activeEdit" >
                     <option value = "True">Active</option>
                     <option value = "False">Not Active</option>
                 </select>

@@ -40,11 +40,16 @@ public class UserServlet extends HttpServlet {
 
         HttpSession session = request.getSession();
         UserService us = new UserService();
+        User uEdit = new User();
 
         String email = (String) request.getParameter("emailEdit");
-        String lastName = (String) request.getParameter("lastName");
+        String fName = (String) request.getParameter("fNameEdit");
+        String lName = (String) request.getParameter("lNameEdit");
+        String role = (String) request.getParameter("roleEdit");
+        String active = (String) request.getParameter("activeEdit");
         String action = (String) request.getParameter("action");
 
+        /*
         String actionTwo = "";
         String emailEdit = "";
         String firstNameEdit = "";
@@ -55,6 +60,15 @@ public class UserServlet extends HttpServlet {
         String prevLastName = "";
 
         User userEdit = new User();
+         */
+        
 
+        
+        try {
+            uEdit = us.get(email, fName, lName, role, active);
+        }catch( Exception ex){
+            Logger.getLogger(UserServlet.class.getName()).log(Level.SEVERE, null, ex);
+        }
+       
     }
 }
