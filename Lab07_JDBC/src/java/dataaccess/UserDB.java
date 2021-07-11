@@ -127,6 +127,4 @@ public class UserDB {
             cp.freeConnection(con);
         }
     }
-    
-    
 }
