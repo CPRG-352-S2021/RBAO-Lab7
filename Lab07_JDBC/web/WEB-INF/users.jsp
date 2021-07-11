@@ -26,7 +26,7 @@
                     <input type="password" name="password" value="" placeholder = "Password">
                     <br>
                     <select style="height:22px;width:175px;margin-top:5px">
-                        <option value = "1">aystem admin</option>
+                        <option value = "1">system admin</option>
                         <option value = "2">regular user</option>
                         <option value = "3">company admin</option> 
                     </select>
@@ -78,7 +78,7 @@
                 <br>
                 <input type="text" name="lastName" value="" placeholder = "Last Name">
                 <br>
-                <select style="height:21px;width:175px">
+                <select style="height:21px;width:175px;margin-top:5px" >
                     <option value = "1">system admin</option>
                     <option value = "2">regular user</option>
                     <option value = "3">company admin</option> 
@@ -90,14 +90,14 @@
                 </select>
                 <br>
                 <input type="hidden" name="action" value="edit">
-                <input style="height:21px;width:176px;margin-top:5px" type="submit" value="Edit" >
+                <input style="height:21px;width:176px;margin-top:5px" type="submit" value="Edit">
             </div>
         </form>
     </form>
     <form action="users" method="POST">
         <input type="hidden" name="action" value="delete">
         <input type="hidden" name="" value="">
-        <input type="submit" value="Delete">
+        <input  style="height:21px;width:176px;margin-top:5px" type="submit" value="Delete">
     </form>
 </c:if>
 </body>
