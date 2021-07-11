@@ -15,7 +15,7 @@ public class UserService {
         return users;
     }
     
-    public User get(String email) throws Exception {
+    public User get(String email, String firstname, String lastname) throws Exception {
         UserDB userDB = new UserDB();
         User user = userDB.get(email);
         return user;
@@ -33,7 +33,7 @@ public class UserService {
         userDB.update(user);
     }
     
-    public void delete(String email) throws Exception {
+    public void delete(String email, String fName, String lName) throws Exception {
         User user = new User();
         user.setEmail(email);
         UserDB userDB = new UserDB();

@@ -45,8 +45,8 @@ public class UserServlet extends HttpServlet {
         String email = (String) request.getParameter("emailEdit");
         String fName = (String) request.getParameter("fNameEdit");
         String lName = (String) request.getParameter("lNameEdit");
-        String role = (String) request.getParameter("roleEdit");
-        String active = (String) request.getParameter("activeEdit");
+        //String role = (String) request.getParameter("roleEdit");
+        //String active = (String) request.getParameter("activeEdit");
         String action = (String) request.getParameter("action");
 
         /*
@@ -61,14 +61,33 @@ public class UserServlet extends HttpServlet {
 
         User userEdit = new User();
          */
-        
-
-        
         try {
-            uEdit = us.get(email, fName, lName, role, active);
-        }catch( Exception ex){
+            uEdit = us.get(email, fName, lName);
+        } catch (Exception ex) {
             Logger.getLogger(UserServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
-       
+
+        if (action != null && action.equals("delete")) {
+            try {
+                us.delete(email, fName, lName);
+            } catch (Exception ex) {
+                Logger.getLogger(UserServlet.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            response.sendRedirect("user");
+        }
+
+        if (action != null && action.equals("edit")) {
+            //request.setAttribute("editView", true);
+            //request.setAttribute("addView", false);
+            try {
+                session = request.getSession();
+                List<User> users = us.getAll();
+                request.setAttribute("users", users);
+            } catch (Exception ex) {
+                Logger.getLogger(UserServlet.class.getName()).log(Level.SEVERE, null, ex);
+                //request.setAttribute("message", "error");
+            }
+
+        }
     }
 }
