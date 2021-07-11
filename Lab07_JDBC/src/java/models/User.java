@@ -15,15 +15,21 @@ public class User implements Serializable {
     private int role;
     
     public User(){
+        email= "";
+        active = true;
+        firstname = "";
+        lastname = "";
+        password = "";
+        role = 0;
     }
     
     public User(String email, boolean active, String firstname, String lastname, String password,int role) {
-        email = this.email;
-        active = this.active;
-        firstname = this.firstname;
-        lastname = this.lastname;
-        password = this.password;
-        role = this.role;
+        this.email = email; 
+        this.active = active; 
+         this.firstname = firstname;
+         this.lastname = lastname; 
+       this.password = password; 
+        this.role = role;
     }
 
     public String getEmail() {

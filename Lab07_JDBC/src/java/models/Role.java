@@ -16,11 +16,13 @@ public class Role implements Serializable{
     private String roleName;
     
     public Role() {
+        roleId = 0;
+        roleName = "";
+        
     }   
-    
     public Role(int roleId, String roleName) {
-        roleId = this.roleId;
-        roleName = this.roleName;
+        this.roleId = roleId;
+        this.roleName = roleName;
     }
 
     public int getRoleId() {

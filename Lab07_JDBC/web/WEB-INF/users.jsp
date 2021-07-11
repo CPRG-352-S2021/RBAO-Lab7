@@ -42,7 +42,6 @@
             </form>
         </c:if>
     </div>
-
     <h2>Manage User</h2>
     <table border="1" cellpadding="5">
         <tr>
@@ -67,7 +66,6 @@
             </tr>
         </c:forEach>
     </table>
-
     <c:if test="${selectedAcc ne null}">
         <h2>Edit User</h2>
         <form method="POST" action="users">
@@ -96,7 +94,6 @@
     </form>
     <form action="users" method="POST">
         <input type="hidden" name="action" value="delete">
-        <input type="hidden" name="" value="">
         <input  style="height:21px;width:176px;margin-top:5px" type="submit" value="Delete">
     </form>
 </c:if>
