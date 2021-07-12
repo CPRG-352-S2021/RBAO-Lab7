@@ -11,7 +11,8 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Manage Users JDBC</title>
-        <link rel="stylesheet" type="text/css" href="style.css"/>
+        <link rel="stylesheet" href="./assets/css/styles.css">
+        
     </head>
     <body>
         <c:if test="${selectedAcc ne null}">
