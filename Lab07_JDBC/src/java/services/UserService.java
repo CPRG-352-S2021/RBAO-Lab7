@@ -39,4 +39,8 @@ public class UserService {
         UserDB userDB = new UserDB();
         userDB.delete(user);
     }
+
+    public void insert(User uADD) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

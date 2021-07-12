@@ -49,18 +49,6 @@ public class UserServlet extends HttpServlet {
         //String active = (String) request.getParameter("activeEdit");
         String action = (String) request.getParameter("action");
 
-        /*
-        String actionTwo = "";
-        String emailEdit = "";
-        String firstNameEdit = "";
-        String lastNameEdit = "";
-        String passwordEdit = "";
-        actionTwo = (String) request.getParameter("actionTwo");
-        String prevEmail = "";
-        String prevLastName = "";
-
-        User userEdit = new User();
-         */
         try {
             uEdit = us.get(email, fName, lName);
         } catch (Exception ex) {
@@ -95,12 +83,6 @@ public class UserServlet extends HttpServlet {
                 Logger.getLogger(UserServlet.class.getName()).log(Level.SEVERE, null, ex);
             }
 
-            /*
-             session.setAttribute("prevEmail", email);
-            prevEmail = (String) session.getAttribute("prevEmail");
-            session.setAttribute("prevLastName", lastName);
-            prevLastName = (String) session.getAttribute("prevLastName");
-             */
             String emailEdit = uEdit.getEmail();
             request.setAttribute("emailEdit", emailEdit);
 
@@ -122,12 +104,6 @@ public class UserServlet extends HttpServlet {
 
         if (action != null && action.equals("save")) {
 
-            /*request.setAttribute("addView", true);                   
-            User userOne = null;
-            Integer roleAdd = 0;
-            String emailAdd = (String) request.getParameter("emailAdd");
-            request.setAttribute("emailAdd", emailAdd);
-             */
             String fNameADD = (String) request.getParameter("fNameADD");
             request.setAttribute("fNameATTAdd", fNameADD);
 
@@ -145,7 +121,6 @@ public class UserServlet extends HttpServlet {
             if (emailADD == null || emailADD.equals("") || fNameADD == null || fNameADD.equals("")
                     || lNameADD == null || lNameADD.equals("") || passwordADD == null || passwordADD.equals("")
                     || (roleADD == 0)) {
-                //request.setAttribute("someNull", true);
 
                 try {
 
@@ -153,49 +128,39 @@ public class UserServlet extends HttpServlet {
                     request.setAttribute("users", users);
                 } catch (Exception ex) {
                     Logger.getLogger(UserServlet.class.getName()).log(Level.SEVERE, null, ex);
-                    request.setAttribute("message", "error");
                 }
 
                 getServletContext().getRequestDispatcher("/WEB-INF/users.jsp").forward(request, response);
                 return;
             }
-            User uADD = new User();
+
+            User userOne = null;
+            Boolean status = Boolean.parseBoolean((String) request.getParameter("activeADD"));
+
             try {
 
-                uADD = new User(emailADD, Boolean.parseBoolean(request.getParameter("activeADD")), fNameADD, lNameADD, passwordADD, roleADD);
-                us.insert(uADD);
+                userOne = new User(emailADD, status, fNameADD, lNameADD, passwordADD, roleADD);
+                us.insert(userOne);
             } catch (Exception ex) {
                 Logger.getLogger(UserServlet.class.getName()).log(Level.SEVERE, null, ex);
             }
             response.sendRedirect("user");
         }
-        /*
-         String actionADD = (String) request.getParameter("actionADD");
-        
-         if(actionADD != null && actionADD.equals("save")){
-                
-                uEdit = new User(request.getParameter("emailEdit"), Boolean.parseBoolean(request.getParameter("statusEdit")), 
-                            request.getParameter("firstNameEdit"), request.getParameter("lastNameEdit"), 
-                            request.getParameter("passwordEdit"), Integer.parseInt((request.getParameter("roleEdit"))));
-                
-                try {
 
-                    us.update(userEdit, (String) session.getAttribute("prevEmail"), (String) session.getAttribute("prevLastName"));
-                    
-                } catch (Exception ex) {
-                    Logger.getLogger(UserServlet.class.getName()).log(Level.SEVERE, null, ex);
-                }
-                response.sendRedirect("user");
-            }
-                
-            else if(actionTwo != null && actionTwo.equals("save")){
-                    
-                    request.setAttribute("editView", false);
-                    request.setAttribute("addView", true);
-                    response.sendRedirect("user");
-            }        
-        
+        String actionADD = (String) request.getParameter("actionADD");
+        String actionEdit = (String) request.getParameter("actionEdit");
 
-         */
+        if (actionADD != null && actionADD.equals("save")) {
+
+            uEdit = new User(request.getParameter("emailEdit"), Boolean.parseBoolean(request.getParameter("activeEdit")),
+                    request.getParameter("fNameEdit"), request.getParameter("lNameEdit"),
+                    request.getParameter("passwordEdit"), Integer.parseInt((request.getParameter("roleEdit"))));
+
+            response.sendRedirect("user");
+
+        } else if (actionEdit != null && actionEdit.equals("save")) {
+
+            response.sendRedirect("user");
+        }
     }
 }
